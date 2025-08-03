@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Products - Infoware System</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Frutiger, "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+            font-size: 12px;
+            background-image: url('images/page-background.png');
+            background-color: #DDE3E8; /* Fallback color */
+            margin: 0;
+            padding: 0;
+        }
+        #page-wrapper {
+            width: 960px;
+            margin: 0 auto 100px auto;
+            background: linear-gradient(to bottom, #FFFFFF, #F8F9FB);
+            border: 1px solid #A0A0A0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        table {
+            border-collapse: collapse;
+            font-size: 12px;
+            width: 100%;
+        }
+        a {
+            color: #417690;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* --- HEADER & TOP NAVIGATION --- */
+        .header-bar {
+            background-image: linear-gradient(to right, #2E5469, #417690); 
+            color: #ffffff;
+            padding: 8px 15px;
+        }
+        .header-bar .logo {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px;
+            text-decoration: none;
+        }
+        .main-nav {
+            background: linear-gradient(to bottom, #5f91ab, #417690);
+            border: 1px solid;
+            border-color: #6a9eb7 #2e5469 #2e5469 #6a9eb7;
+            display: inline-block;
+        }
+        .main-nav a {
+            color: #ffffff;
+            font-weight: normal;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            padding: 6px 12px;
+            display: inline-block;
+            border-right: 1px solid #2E5469;
+        }
+        .main-nav a:last-child {
+            border-right: none;
+        }
+        .main-nav a:hover {
+             background-color: rgba(0,0,0,0.1);
+             text-decoration: none;
+        }
+        .main-nav a.active {
+            background-color: rgba(0,0,0,0.2);
+        }
+
+        /* --- HERO BANNER --- */
+        .hero-banner {
+            background-color: #417690;
+            background-image: linear-gradient(to bottom, #417690, #2E5469);
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        .hero-banner .hero-text { position: relative; z-index: 10; padding-top: 40px;}
+        .hero-banner h2 {
+            font-size: 32px;
+            margin: 10px 0 5px 0;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .hero-banner p {
+            font-size: 16px;
+            margin: 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        .hero-banner .server-png {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 260px;
+            opacity: 0.9;
+            z-index: 1;
+        }
+        .hero-banner .hero-box {
+            position: absolute;
+            bottom: 20px;
+            height: 175px;
+            border: none;
+            z-index: 5;
+            transition: transform 0.2s ease-in-out;
+        }
+        .hero-banner .hero-box:hover {
+            transform: scale(1.05);
+        }
+        #crm-box {
+            left: 15%;
+            transform: rotate(-8deg);
+        }
+        #erp-box {
+            right: 15%;
+            transform: rotate(8deg);
+        }
+
+        /* --- SUBHEADER & SEARCH --- */
+        .subheader {
+            padding: 8px 20px;
+            border-bottom: 1px solid #cccccc;
+            overflow: hidden; 
+            background-color: #f5f5f5;
+        }
+        .subheader .tagline {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 22px;
+            font-style: italic;
+            color: #417690;
+            float: left;
+        }
+        .subheader .search-box {
+            float: right;
+            margin-top: 5px;
+        }
+        .search-box input { border: 1px solid #999999; font-size: 12px; font-family: "Segoe UI", Arial, sans-serif; }
+        .search-box button { background-color: #cccccc; border: 1px solid #999999; font-weight: bold; font-size: 11px; padding: 2px 5px; }
+        
+        /* --- MAIN LAYOUT & CONTENT --- */
+        .container { padding: 20px; }
+        .main-content h1 { font-size: 20px; color: #2E5469; border-bottom: 2px solid #DDE3E8; padding-bottom: 5px; margin-bottom: 15px;}
+        .main-content p { line-height: 1.6; }
+        .comparison-table {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        .comparison-table td.check, .comparison-table td.cross {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .comparison-table td.check { color: green; }
+        .comparison-table td.cross { color: red; }
+        
+        /* --- FOOTER STYLES --- */
+        .footer-container { padding: 15px 20px; border-top: 1px solid #cccccc; background-color: #f5f5f5;}
+        .footer-logo { font-size: 16px; font-style: italic; color: #A9A9A9; }
+        .footer-logo b { font-style: normal; font-weight: bold; }
+        .footer-text { text-align: right; color: #808080; font-size: 11px; }
+        .footer-text a { color: #808080; text-transform: uppercase; letter-spacing: 0.5px; font-size: 10px; }
+    </style>
+</head>
+<body>
+
+<div id="page-wrapper">
+    <div class="header-bar">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="vertical-align: middle;">
+                    <a href="LandingPage.html" class="logo">
+                        <img src="images/webicon1.png" alt="Infoware System Logo" style="height: 35px; vertical-align: middle;">
+                    </a>
+                </td>
+                <td style="text-align: right; vertical-align: middle;">
+                    <nav class="main-nav">
+                        <a href="#">Services</a><a href="products.html" class="active">Products</a><a href="#">Support</a><a href="#">About Us</a>
+                    </nav>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="hero-banner">
+        <div class="hero-text">
+            <h2>Our Software & Product Suite</h2>
+            <p>Powerful, scalable solutions for every business need</p>
+        </div>
+        <img src="images/done.png" alt="Software Graph" class="server-png">
+        <img src="images/connectCRM.png" alt="ConnectCRM Software Box" class="hero-box" id="crm-box">
+        <img src="images/nexuxERP.png" alt="NexusERP Software Box" class="hero-box" id="erp-box">
+    </div>
+
+    <div class="subheader">
+        <div class="search-box">
+            <label for="search">SEARCH</label><input type="text" id="search" size="20"><button>GO</button>
+        </div>
+        <div class="tagline">Infoware: <i>System</i></div>
+    </div>
+    
+    <div class="container">
+        <div class="main-content">
+            <h1>Why Choose Infoware Systems?</h1>
+            <p>Our enterprise solutions are built from the ground up for performance, scalability, and seamless integration. See how our flagship products, NexusERP and ConnectCRM, compare to other generic solutions on the market.</p>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Infoware System (NexusERP & ConnectCRM)</th>
+                        <th>Other Generic ERPs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Unified Dashboard</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Custom Module Integration</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>24/7 Priority Support</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>Full Mobile & Web Access</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Transparent, Fixed Pricing</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>Dedicated Account Manager</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                     <tr>
+                        <td>On-Premise & Cloud Deployment</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer-container">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="footer-logo">Infoware <b>System</b></td>
+                <td class="footer-text">
+                    <a href="#">Contact Us</a> | <a href="#">Privacy</a> | <a href="#">Legal</a><br>
+                    &copy; 2025 Infoware System, All rights reserved.
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

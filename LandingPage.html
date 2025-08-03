@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Infoware System - Professional IT Services & Consultancy</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Frutiger, "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+            font-size: 12px;
+            background-image: url('images/page-background.png');
+            background-color: #DDE3E8; /* Fallback color */
+            margin: 0;
+            padding: 0;
+        }
+        #page-wrapper {
+            width: 960px;
+            margin: 0 auto 100px auto; /* Removed top margin */
+            background: linear-gradient(to bottom, #FFFFFF, #F8F9FB);
+            border: 1px solid #A0A0A0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        table {
+            border-collapse: collapse;
+            font-size: 12px;
+            width: 100%;
+        }
+        a {
+            color: #417690;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* --- HEADER & TOP NAVIGATION --- */
+        .header-bar {
+            background-image: linear-gradient(to right, #2E5469, #417690); 
+            color: #ffffff;
+            padding: 8px 15px;
+        }
+        .header-bar .logo {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px;
+            text-decoration: none;
+        }
+        .main-nav {
+            background: linear-gradient(to bottom, #5f91ab, #417690);
+            border: 1px solid;
+            border-color: #6a9eb7 #2e5469 #2e5469 #6a9eb7;
+            display: inline-block;
+        }
+        .main-nav a {
+            color: #ffffff;
+            font-weight: normal;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            padding: 6px 12px;
+            display: inline-block;
+            border-right: 1px solid #2E5469;
+        }
+        .main-nav a:last-child {
+            border-right: none;
+        }
+        .main-nav a:hover {
+            background-color: rgba(0,0,0,0.1);
+            text-decoration: none;
+        }
+
+        /* --- HERO BANNER --- */
+        .hero-banner {
+            background-color: #417690;
+            background-image: linear-gradient(to bottom, #417690, #2E5469);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            height: 250px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .hero-banner .hero-text { position: relative; z-index: 10; padding-top: 40px;}
+        .hero-banner h2 {
+            font-size: 32px;
+            margin: 10px 0 5px 0;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .hero-banner p {
+            font-size: 16px;
+            margin: 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        .hero-banner .server-png {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 170px;
+            border: none;
+            opacity: 0.7;
+            z-index: 1;
+        }
+        .hero-banner .hero-box {
+            position: absolute;
+            bottom: 20px;
+            height: 175px;
+            border: none;
+            z-index: 5;
+            transition: transform 0.2s ease-in-out;
+        }
+        .hero-banner .hero-box:hover {
+            transform: scale(1.05);
+        }
+        #crm-box {
+            left: 15%;
+            transform: rotate(-8deg);
+        }
+        #erp-box {
+            right: 15%;
+            transform: rotate(8deg);
+        }
+
+        /* --- SUBHEADER & SEARCH --- */
+        .subheader {
+            padding: 8px 20px;
+            border-bottom: 1px solid #cccccc;
+            overflow: hidden; 
+            background-color: #f5f5f5;
+        }
+        .subheader .tagline {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 22px;
+            font-style: italic;
+            color: #417690;
+            float: left;
+        }
+        .subheader .search-box {
+            float: right;
+            margin-top: 5px;
+        }
+        .search-box input { border: 1px solid #999999; font-size: 12px; font-family: "Segoe UI", Arial, sans-serif; }
+        .search-box button { background-color: #cccccc; border: 1px solid #999999; font-weight: bold; font-size: 11px; padding: 2px 5px; }
+        
+        /* --- MAIN LAYOUT --- */
+        .container {
+            padding: 20px;
+        }
+        td.left-sidebar { width: 220px; padding-right: 20px; vertical-align: top; }
+        td.main-content { vertical-align: top; }
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* --- SIDEBAR STYLES --- */
+        .sidebar-section h3 {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0 0 8px 0;
+            padding-bottom: 3px;
+            display: inline-block;
+            border-bottom: 1px solid #cccccc;
+        }
+        .sidebar-section ul { list-style: none; padding: 0; margin: 0 0 25px 0; }
+        .sidebar-section li { margin-bottom: 6px; }
+        .sidebar-section b { color: #2E5469; }
+
+        /* --- MAIN CONTENT STYLES --- */
+        .main-col {
+            float: left;
+            width: 48%;
+            box-sizing: border-box;
+        }
+        .main-col.left {
+            margin-right: 4%;
+        }
+        .main-col h4 {
+            font-size: 16px;
+            color: #2E5469;
+            margin: 0 0 15px 0;
+            border-bottom: 2px solid #DDE3E8;
+            padding-bottom: 5px;
+        }
+        .main-col .sub-section {
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .main-col .sub-section h5 {
+            font-size: 14px;
+            margin: 0 0 5px 0;
+        }
+        .main-col p {
+            line-height: 1.6;
+            margin: 0 0 10px 0;
+        }
+        .learn-more-link {
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .service-img-box {
+            float: right;
+            margin-left: 10px;
+        }
+        .service-img-box img {
+            height: 60px;
+            margin: 0 0 5px 5px;
+        }
+        
+        /* --- FOOTER STYLES --- */
+        .footer-container { padding: 15px 20px; border-top: 1px solid #cccccc; background-color: #f5f5f5;}
+        .footer-logo { font-size: 16px; font-style: italic; color: #A9A9A9; }
+        .footer-logo b { font-style: normal; font-weight: bold; }
+        .footer-text { text-align: right; color: #808080; font-size: 11px; }
+        .footer-text a { color: #417690; font-size: 11px; cursor: pointer; }
+
+        /* --- CONTACT MODAL --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+        .modal-content {
+            background: #FFFFFF;
+            margin: 12% auto;
+            padding: 20px;
+            width: 360px;
+            border: 1px solid #417690;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            text-align: center;
+            font-size: 13px;
+        }
+        .modal-content h3 {
+            margin-top: 0;
+            color: #2E5469;
+            font-size: 16px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+        .modal-content p {
+            margin: 8px 0;
+            color: #333;
+        }
+        .close {
+            float: right;
+            font-size: 20px;
+            font-weight: bold;
+            color: #555;
+            cursor: pointer;
+        }
+        .close:hover { color: #000; }
+    </style>
+</head>
+<body>
+
+<div id="page-wrapper">
+    <div class="header-bar">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="vertical-align: middle;">
+                    <a href="index.html" class="logo">
+                        <img src="images/webicon1.png" alt="Innovatech Logo" style="height: 35px; vertical-align: middle;">
+                    </a>
+                </td>
+                <td style="text-align: right; vertical-align: middle;">
+                    <nav class="main-nav">
+                        <a href="services.html">Services</a><a href="products.html">Products</a><a href="#">Support</a><a href="#">About Us</a>
+                    </nav>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="hero-banner">
+        <div class="hero-text">
+            <h2>Engineering Your Digital Future</h2>
+            <p>With Innovatech's powerful custom IT solutions</p>
+        </div>
+        <img src="images/servers.png" alt="Data Servers" class="server-png">
+        <img src="images/connectCRM.png" alt="ConnectCRM Software Box" class="hero-box" id="crm-box">
+        <img src="images/nexuxERP.png" alt="NexusERP Software Box" class="hero-box" id="erp-box">
+    </div>
+
+    <div class="subheader">
+        <div class="search-box">
+            <label for="search">SEARCH</label><input type="text" id="search" size="20"><button>GO</button>
+        </div>
+        <div class="tagline">Infoware: <i>System</i></div>
+    </div>
+    
+    <div class="container">
+        <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td class="left-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Our Products</h3>
+                        <ul>
+                            <li><a href="products.html"><b>&raquo; NexusERP & ConnectCRM</b></a></li>
+                            <li><a href="products.html"><b>&raquo; Custom-Built Software</b></a></li>
+                            <li><a href="products.html"><b>&raquo; Academia Core Suite</b></a></li>
+                            <li><a href="products.html"><b>&raquo; ShopSync Pro</b></a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-section">
+                        <h3>IT Consulting</h3>
+                        <ul>
+                            <li><a href="services.html">Cloud Strategy & Migration</a></li>
+                            <li><a href="services.html">Cybersecurity Assessment</a></li>
+                            <li><a href="services.html">Digital Transformation</a></li>
+                            <li><a href="services.html">DevOps & Automation</a></li>
+                        </ul>
+                    </div>
+                     <div class="sidebar-section">
+                        <h3>IT Peripherals & Hardware</h3>
+                        <ul>
+                            <li><a href="hardware.html">Server & Network Gear</a></li>
+                            <li><a href="hardware.html">Workstation Procurement</a></li>
+                            <li><a href="hardware.html">Complete Office Setup</a></li>
+                        </ul>
+                    </div>
+                </td>
+                
+                <td class="main-content">
+                    <div class="clearfix">
+                        <div class="main-col left">
+                            <h4>Software Solutions</h4>
+                            <div class="sub-section">
+                                <h5>Custom Solutions, ConnectCRM & NexusERP</h5>
+                                <div class="service-img-box">
+                                    <img src="images/connectCRM.png" alt="ConnectCRM Box">
+                                    <img src="images/nexuxERP.png" alt="NexusERP Box">
+                                </div>
+                                <p>We deliver fully integrated enterprise platforms and custom-built applications designed to streamline your business operations and enhance productivity.</p>
+                            </div>
+                            <div class="sub-section">
+                                <h5>Web & Mobile App Development</h5>
+                                <p>Our team develops high-performance, scalable applications for both web and Android platforms, tailored to engage your customers and empower your workforce.</p>
+                            </div>
+                            <a href="#" class="learn-more-link">&raquo; Learn More About Our Software</a>
+                        </div>
+
+                        <div class="main-col">
+                            <h4>IT Peripherals & Hardware</h4>
+                            <div class="sub-section">
+                                <p>We provide end-to-end hardware procurement services, including high-performance servers, robust networking gear, and complete workstation setups for your entire office, ensuring a reliable and efficient IT infrastructure.</p>
+                            </div>
+                             <a href="hardware.html" class="learn-more-link">&raquo; Learn More About Our Hardware</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer-container">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="footer-logo">Infoware <b>System</b></td>
+                <td class="footer-text">
+                    <a id="contact-link">Contact Us</a> | <a href="#">Privacy</a> | <a href="#">Legal</a><br>
+                    &copy; 2025 Infoware System, All rights reserved.
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Contact Modal -->
+<div id="contact-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="close-modal">&times;</span>
+        <h3>Contact Infoware System</h3>
+        <p><b>Email:</b> infowaresys1971@gmail.com</p>
+        <p><b>Phone:</b> +91 7848051148</p>
+        <p><b>Address:</b> Bhubaneswar, India</p>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('contact-modal');
+    const link = document.getElementById('contact-link');
+    const closeBtn = document.getElementById('close-modal');
+    link.onclick = () => modal.style.display = 'block';
+    closeBtn.onclick = () => modal.style.display = 'none';
+    window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
+</script>
+
+</body>
+</html>
+
